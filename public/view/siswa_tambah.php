@@ -36,7 +36,7 @@
         <div class="card-header bg-primary text-white">Tambah Data Siswa</div>
 
         <div class="card-body">
-            <form action="siswa_tambah_proses.php">
+            <form action="siswa_tambah_proses.php" method="POST">
                 <div class="form-group mt-4">
                     <label for="">Nama Siswa</label>
                     <input type="text" name="nama" id="" class="form-control">
@@ -44,8 +44,8 @@
 
                 <div class="form-group mt-4">
                     <label for="">Jenis Kelamin</label> <br>
-                    <input class="form-check-input" type="radio" name="gender" id="l" checked> <label for="l">Laki-laki</label>
-                    <input class="form-check-input" type="radio" name="gender" id="p"> <label for="p">Perempuan</label>
+                    <input value="Laki-laki" class="form-check-input" type="radio" name="gender" id="l" checked> <label for="l">Laki-laki</label>
+                    <input value="Perempuan" class="form-check-input" type="radio" name="gender" id="p"> <label for="p">Perempuan</label>
                 </div>
 
                 <div class="form-group mt-4">
