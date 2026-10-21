@@ -43,6 +43,7 @@
             <tr>
               <th>NO</th>
               <th>NAMA</th>
+              <th>JENIS KELAMIN</th>
               <th>KELAS</th>
               <th>NILAI</th>
               <th>LULUS/TDK LULUS</th>
@@ -72,8 +73,15 @@
               <td><?=$kls?></td>
               <td><?=$nilai?></td>
               <td>
+                <?php if($nilai > 70): ?>
+                  <span class="text-primary">LULUS</span>
+                <?php else: ?>
+                  <span class="text-danger">GAGAL</span>
+                <?php endif; ?>
+              </td>
+              <td>
                 <a href="siswa_hapus_proses.php?id=<?=$ids?>" class="btn btn-light">&#10006;</a>
-                <a href="#" class="btn btn-light">&#9998;</a>
+                <a href="siswa_update.php?id=<?=$ids?>" class="btn btn-light">&#9998;</a>
                 <a href="#" class="btn btn-light">&#9776;</a>
               </td>
             </tr>

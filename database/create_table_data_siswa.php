@@ -3,7 +3,7 @@
     include('../config/my_connection.php');
 
     $sql = "CREATE TABLE IF NOT EXISTS data_siswa(
-    id_siswa INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    id_siswa CHAR(36) PRIMARY KEY,
     nama_siswa VARCHAR(225) NOT NULL,
     jenis_kelamin VARCHAR(225) NOT NULL,
     kelas VARCHAR(225) NOT NULL,
