@@ -13,7 +13,7 @@
     $query = $koneks -> query($sql);
 
     if($query === true){
-        echo " - Tabel 'data_siswa' berhasil dibuat";
+        echo " - Tabel data_siswa berhasil dibuat";
     } else {
         echo "Gagal";
     }

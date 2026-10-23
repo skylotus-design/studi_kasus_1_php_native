@@ -55,9 +55,10 @@
 
             $no = 1;
 
-              $sql = "SELECT * FROM data_siswa ORDER BY nama_siswa ASC";
-
-              $query = $koneks->query($sql);
+              $stmt = $koneks->prepare("SELECT * FROM data_siswa ORDER BY nama_siswa ASC");
+              $stmt->execute();
+              
+              $query = $stmt->get_result();
 
               while($hasil = $query->fetch_array()){
                 $ids = $hasil["id_siswa"];

@@ -5,7 +5,7 @@
     $tid = $_REQUEST["id"];
 
     $stmt = $koneks->prepare("DELETE FROM data_siswa WHERE id_siswa = ?");
-    $stmt->bind_param("i", $tid);
+    $stmt->bind_param("s", $tid);
 
     $stmt->execute();
 

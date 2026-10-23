@@ -18,12 +18,11 @@
         $kelas = $_POST["kelas"];
         $nilai = $_POST["nilai"];
 
-        $sql = $koneks->prepare("INSERT INTO data_siswa(id_siswa, nama_siswa, jenis_kelamin, kelas, nilai_ujian) VALUES(?,?,?,?,?)");
-        $sql->bind_param("ssssi", $uuid, $nama, $gender, $kelas, $nilai);
+        $stmt = $koneks->prepare("INSERT INTO data_siswa(id_siswa, nama_siswa, jenis_kelamin, kelas, nilai_ujian) VALUES(?,?,?,?,?)");
+        $stmt->bind_param("ssssi", $uuid, $nama, $gender, $kelas, $nilai);
+        $stmt->execute();
 
-        $sql->execute();
-
-        if($sql){
+        if($stmt){
             Header("Location:siswa_data.php");
         }
 

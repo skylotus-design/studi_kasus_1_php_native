@@ -6,6 +6,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <?php include('../../config/my_connection.php'); ?>
 </head>
 <body>
 
@@ -28,6 +29,22 @@
     </ul>
   </div>
 </nav>
+
+    <?php
+
+        $uuid = $_REQUEST["id"];
+
+        $stmt = $koneks->prepare("SELECT * FROM data_siswa WHERE id_siswa = ?");
+        $stmt->bind_param("i", $uuid);
+        $stmt->execute();
+
+        $query = $stmt->get_result();
+        $hasil = $query->fetch_array();
+
+        $nama = $hasil["nama_siswa"];
+        $nilai = $hasil["nilai_ujian"];
+
+    ?>
     
     <div class="container mt-5 mx-auto ">
 
@@ -37,9 +54,10 @@
 
         <div class="card-body">
             <form action="siswa_update_proses.php" method="POST">
+                <input type="hidden" name="uuid" value="<?=$uuid;?>">
                 <div class="form-group mt-4">
                     <label for="">Nama Siswa</label>
-                    <input type="text" name="nama" id="" class="form-control">
+                    <input type="text" name="nama" id="" class="form-control" value="<?=$nama;?>">
                 </div>
 
                 <div class="form-group mt-4">
@@ -60,7 +78,7 @@
 
                 <div class="form-group mt-4">
                     <label for="">Nilai Ujian</label>
-                    <input type="number" name="nilai" id="" class="form-control" min="0" max="100" value="70">
+                    <input type="number" name="nilai" id="" class="form-control" min="0" max="100" value="<?=$nilai;?>">
                 </div>
 
                 <div class="form-group mt-4">
